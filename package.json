@@ -1,0 +1,34 @@
+{
+  "name": "library-starter-project",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.5",
+    "jest-cli": "^20.0.4",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.3"
+  },
+  "scripts": {
+    "build": "yarn cleanup && yarn build:commonjs",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "cleanup": "rm -rf lib/ && mkdir lib",
+    "test": "jest",
+    "lint": "standard --verbose | snazzy"
+  },
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  }
+}
